@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace deckofcards
+﻿namespace deckofcards
 {
     class Program
     {
@@ -8,6 +6,7 @@ namespace deckofcards
         {
             App app = new App();
             //Add code in here...
+            wow
         }
     }
 }
