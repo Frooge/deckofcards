@@ -6,8 +6,10 @@ namespace deckofcards
 {
     public class CardClass
     {
-        public CardClass()
+        public CardClass(string s, string r)
         {
+            suit = s;
+            rank = r;
         }
 
         string _suit { get; set; }
