@@ -1,4 +1,6 @@
-﻿namespace deckofcards
+﻿using System;
+
+namespace deckofcards
 {
     class Program
     {
@@ -6,7 +8,11 @@
         {
             App app = new App();
             //Add code in here...
-            wow
+
+            while(true)
+            {
+                Console.WriteLine(app.Choice());
+            }
         }
     }
 }

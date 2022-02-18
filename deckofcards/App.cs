@@ -14,12 +14,18 @@ namespace deckofcards
 
         public string Choice()
         {
-            //Add code in here...
+            Console.WriteLine("Deck of Cards\n" +
+                "1 - Create\n" +
+                "2 - Shuffle\n" +
+                "3- Deal\n" +
+                "4 - Display Deck\n" +
+                "Choice: ");
+            return Console.ReadLine();
         }
 
         public void CreateDeck()
         {
-            //Add code in here...
+            
         }
 
         public void ShuffleDeck()
