@@ -29,8 +29,7 @@ namespace deckofcards
                             Console.Write("How many? ");
                             userInput = Console.ReadLine();
                         }
-                        int num = Convert.ToInt32(userInput);
-                        app.Deal(num);
+                        app.Deal(n);
                         break;
                     case "4":
                         app.DisplayDeck();
