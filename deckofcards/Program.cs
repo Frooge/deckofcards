@@ -17,10 +17,20 @@ namespace deckofcards
                         app.CreateDeck();
                         break;
                     case "2":
-
+                        app.ShuffleDeck();
                         break;
                     case "3":
-
+                        Console.Write("How many? ");
+                        string userInput = Console.ReadLine();
+                        int n;
+                        while(!int.TryParse(userInput, out n))
+                        {
+                            Console.WriteLine("Please input a valid number");
+                            Console.Write("How many? ");
+                            userInput = Console.ReadLine();
+                        }
+                        int num = Convert.ToInt32(userInput);
+                        app.Deal(num);
                         break;
                     case "4":
                         app.DisplayDeck();

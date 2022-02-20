@@ -8,6 +8,8 @@ namespace deckofcards
     {
         //List
         private List<CardClass> cards = new List<CardClass>();
+        
+        private static Random rng = new Random();
 
         public App()
         {
@@ -15,7 +17,7 @@ namespace deckofcards
 
         public string Choice()
         {
-            Console.WriteLine("Deck of Cards\n" +
+            Console.Write("\nDeck of Cards\n" +
                 "1 - Create\n" +
                 "2 - Shuffle\n" +
                 "3- Deal\n" +
@@ -39,7 +41,24 @@ namespace deckofcards
 
         public void ShuffleDeck()
         {
-            //Add code in here...
+            if(cards.Count > 0)
+            {
+            var tempCards = new CardClass("","");
+            Console.WriteLine("Deck not yet shuffled!");
+            int n = cards.Count;
+            while(n>1){
+                n--;
+                int k = rng.Next(n+1);
+                tempCards = cards[k];
+                cards[k] = cards[n];
+                cards[n] = tempCards;
+            }
+            Console.WriteLine("Deck shuffled!");
+            }
+            else
+            {
+                Console.WriteLine("Deck is empty!");
+            }
         }
 
         public void DisplayDeck()
@@ -55,12 +74,24 @@ namespace deckofcards
             {
                 Console.WriteLine("Deck is empty!");
             }
+            Console.WriteLine("No. of cards: " + cards.Count);
 
         }
 
         public void Deal(int num)
         {
-            //Add code in here...
+            if(cards.Count > 0)
+            {            
+                while(num>0){
+                    Console.WriteLine("Suit: " + cards[0].suit + "; Rank: " + cards[0].rank);    
+                    cards.RemoveAt(0);
+                    num--;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Cannot deal if deck has less cards than the asked number.");
+            }
         }
     }
 }
