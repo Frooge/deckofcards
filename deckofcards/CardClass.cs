@@ -6,7 +6,7 @@ namespace deckofcards
 {
     public class CardClass
     {
-        public CardClass(string s, string r)
+        public CardClass(string s = "", string r = "")
         {
             suit = s;
             rank = r;

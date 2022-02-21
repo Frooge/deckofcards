@@ -7,7 +7,7 @@ namespace deckofcards
     public class App
     {
         //List
-        private List<CardClass> cards = new List<CardClass>();
+        private List<CardClass> deck = new List<CardClass>();
         
         private static Random rng = new Random();
 
@@ -20,7 +20,7 @@ namespace deckofcards
             Console.Write("\nDeck of Cards\n" +
                 "1 - Create\n" +
                 "2 - Shuffle\n" +
-                "3- Deal\n" +
+                "3 - Deal\n" +
                 "4 - Display Deck\n" +
                 "Choice: ");
             return Console.ReadLine();
@@ -28,12 +28,12 @@ namespace deckofcards
 
         public void CreateDeck()
         {
-            cards.Clear();
+            deck.Clear();
             for (int i = 0; i < Enum.GetNames(typeof(Suits)).Length; i++)
             {
                 for (int j = 0; j < Enum.GetNames(typeof(Rank)).Length; j++)
                 {
-                    cards.Add(new CardClass(((Suits)i).ToString(), ((Rank)j).ToString()));
+                    deck.Add(new CardClass(((Suits)i).ToString(), ((Rank)j).ToString()));
                 }
             }
             Console.WriteLine("New deck created!");
@@ -41,17 +41,17 @@ namespace deckofcards
 
         public void ShuffleDeck()
         {
-            if(cards.Count > 0)
+            if(deck.Count > 0)
             {
-            var tempCards = new CardClass("","");
+            var tempCards = new CardClass();
             Console.WriteLine("Deck not yet shuffled!");
-            int n = cards.Count;
+            int n = deck.Count;
             while(n>1){
                 n--;
                 int k = rng.Next(n+1);
-                tempCards = cards[k];
-                cards[k] = cards[n];
-                cards[n] = tempCards;
+                tempCards = deck[k];
+                deck[k] = deck[n];
+                deck[n] = tempCards;
             }
             Console.WriteLine("Deck shuffled!");
             }
@@ -63,9 +63,9 @@ namespace deckofcards
 
         public void DisplayDeck()
         {
-            if(cards.Count > 0)
+            if(deck.Count > 0)
             {
-                foreach (CardClass card in cards)
+                foreach (CardClass card in deck)
                 {
                     Console.WriteLine("Suit: " + card.suit + "; Rank: " + card.rank);
                 }
@@ -74,17 +74,17 @@ namespace deckofcards
             {
                 Console.WriteLine("Deck is empty!");
             }
-            Console.WriteLine("No. of cards: " + cards.Count);
+            Console.WriteLine("No. of cards: " + deck.Count);
 
         }
 
         public void Deal(int num)
         {
-            if(cards.Count > 0)
+            if(deck.Count > 0)
             {            
                 while(num>0){
-                    Console.WriteLine("Suit: " + cards[0].suit + "; Rank: " + cards[0].rank);    
-                    cards.RemoveAt(0);
+                    Console.WriteLine("Suit: " + deck[0].suit + "; Rank: " + deck[0].rank);    
+                    deck.RemoveAt(0);
                     num--;
                 }
             }
